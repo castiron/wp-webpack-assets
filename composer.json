@@ -1,6 +1,6 @@
 {
-  "name": "cic/webpack-assets",
-  "description": "Load assets from webpack built asset manifest",
+  "name": "cic/wp-webpack-assets",
+  "description": "Load assets from webpack built asset manifest. Requires something like: https://www.npmjs.com/package/webpack-php-manifest",
   "keywords": ["wordpress", "plugin", "webpack", "assets", "bundle", "hash", "hashed", "Cast Iron Coding"],
   "homepage": "http://www.castironcoding.com",
   "license": "MIT",
