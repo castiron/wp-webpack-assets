@@ -1,0 +1,24 @@
+{
+  "name": "cic/webpack-assets",
+  "description": "Load assets from webpack built asset manifest",
+  "keywords": ["wordpress", "plugin", "webpack", "assets", "bundle", "hash", "hashed", "Cast Iron Coding"],
+  "homepage": "http://www.castironcoding.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gabe Blair",
+      "email": "gabe@castironcoding.com",
+      "homepage": "http://www.castironcoding.com"
+    },
+    {
+      "name": "Naomi Rubin",
+      "email": "naomi@castironcoding.com",
+      "homepage": "http://www.castironcoding.com"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=5.5.9",
+    "composer/installers": "v1.0.6"
+  }
+}
