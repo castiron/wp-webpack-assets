@@ -19,6 +19,6 @@
   "type": "wordpress-plugin",
   "require": {
     "php": ">=5.5.9",
-    "composer/installers": "v1.0.6"
+    "composer/installers": ">=v1.4"
   }
 }
