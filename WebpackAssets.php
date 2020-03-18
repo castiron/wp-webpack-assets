@@ -12,7 +12,7 @@
     protected $fileName = 'assets-manifest';
     protected $phpClassName = 'WebpackBuiltFiles';
 
-    public function __construct($options) {
+    public function __construct($options = []) {
       $this->assetDir = get_template_directory().$this->assetDir;
       $this->assetDir = array_key_exists('dir', $options) ?
         $options['dir'] : $this->assetDir;
@@ -20,6 +20,7 @@
         $options['fileName'] : $this->fileName;
       $this->phpClassName = array_key_exists('phpClassName', $options) ?
         $options['phpClassName'] : $this->phpClassName;
+      $this->entry = array_key_exists('entry', $options) ? $options['entry'] : null;
     }
 
     protected function assetManifestPath() {
@@ -36,7 +37,7 @@
       require_once($this->assetManifestPath());
     }
 
-    protected function getAssets($type) {
+    public function getAssets($type) {
       $manifestClass = $this->phpClassName;
 
       // Require assets manifest once before outputting assets
@@ -46,9 +47,18 @@
         throw new Exception('Could not load class ' . $manifestClass . ' from asset manifest file ' .
           $this->assetManifestPath());
       }
-
       $assetListVar = $type.'Files';
-      return $manifestClass::$$assetListVar;
+      $all = $manifestClass::$$assetListVar;
+
+      if ($this->entry) {
+        return array_filter($all, function($entry) {
+            if ($entry === $this->entry) return true;
+            if ($entry === "webpack-dev-server") return true;
+            return false;
+        }, ARRAY_FILTER_USE_KEY);
+      }
+
+      return $all;
     }
 
     protected function css($files) {
