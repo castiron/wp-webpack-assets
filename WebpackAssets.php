@@ -11,6 +11,7 @@
     protected $assetDir = '/build/';
     protected $fileName = 'assets-manifest';
     protected $phpClassName = 'WebpackBuiltFiles';
+    protected $entry;
 
     public function __construct($options = []) {
       $this->assetDir = get_template_directory().$this->assetDir;
